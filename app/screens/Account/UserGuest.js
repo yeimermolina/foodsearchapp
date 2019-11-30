@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { Button } from "react-native-elements";
+import { withNavigation } from "react-navigation";
 
-export default function UserGuest() {
+function UserGuest({ navigation }) {
   return (
     <ScrollView style={styles.container} centerContent>
       <Image
@@ -19,12 +20,14 @@ export default function UserGuest() {
           buttonStyle={styles.btn}
           containerStyle={styles.btnContainer}
           title="Check my Profile"
-          onPress={() => console.log("Hola")}
+          onPress={() => navigation.navigate("Login")}
         />
       </View>
     </ScrollView>
   );
 }
+
+export default withNavigation(UserGuest);
 
 const styles = StyleSheet.create({
   container: {
