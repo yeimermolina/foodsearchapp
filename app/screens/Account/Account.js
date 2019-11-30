@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
 import * as firebase from "firebase";
 import Loading from "../../components/Loading";
+import UserGuest from "./UserGuest";
+import UserLogged from "./UserLogged";
 
 const Account = () => {
   const [logged, setLogged] = useState(null);
@@ -12,23 +13,11 @@ const Account = () => {
     });
   }, []);
 
-  if (logged === false) {
+  if (logged === null) {
     return <Loading isVisible text="Loading..." />;
   }
 
-  if (logged) {
-    return (
-      <View>
-        <Text>Account, loegueado</Text>
-      </View>
-    );
-  }
-
-  return (
-    <View>
-      <Text>Account, no loegueado</Text>
-    </View>
-  );
+  return logged ? <UserLogged /> : <UserGuest />;
 };
 
 export default Account;
