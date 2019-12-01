@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { StyleSheet, View, ScrollView, Text, Image } from "react-native";
 import { Divider } from "react-native-elements";
+import Toast from "react-native-easy-toast";
+import LoginForm from "../../components/Account/LoginForm";
 
 function CreateAccount({ navigation }) {
   return (
@@ -17,6 +19,7 @@ function CreateAccount({ navigation }) {
 }
 
 export default function Login({ navigation }) {
+  const toastRef = useRef();
   return (
     <ScrollView style={{ backgroundColor: "#f6f6f6" }}>
       <Image
@@ -25,13 +28,14 @@ export default function Login({ navigation }) {
         resizeMode="contain"
       />
       <View style={styles.view}>
-        <Text>Login Form</Text>
+        <LoginForm toastRef={toastRef} />
         <CreateAccount navigation={navigation} />
       </View>
       <Divider style={styles.divider} />
       <View style={styles.view}>
         <Text>Login Facebook</Text>
       </View>
+      <Toast ref={toastRef} position="center" opacity={0.5} />
     </ScrollView>
   );
 }
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
     marginLeft: 40
   },
   divider: {
-    backgroundColor: "#00a680",
+    backgroundColor: "#f67280",
     margin: 40
   },
   signupText: {
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   btnSignup: {
-    color: "#00a680",
+    color: "#f67280",
     fontWeight: "bold",
     marginLeft: 10
   }
