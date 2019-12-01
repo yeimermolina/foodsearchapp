@@ -11,7 +11,7 @@ export default function Loading({ isVisible, text }) {
       overlayStyle={styles.overlay}
     >
       <View style={styles.view}>
-        <ActivityIndicator size="large" color="#00a680" />
+        <ActivityIndicator size="large" color="#f67280" />
         {text && <Text style={styles.text}>{text}</Text>}
       </View>
     </Overlay>
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     height: 100,
     width: 200,
     backgroundColor: "white",
-    borderColor: "#00a680",
-    borderWidth: 2,
+    borderColor: "#f67280",
+    borderWidth: 1,
     borderRadius: 10
   },
   view: {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
-    color: "#00a680",
+    color: "#f67280",
     textTransform: "uppercase",
     marginTop: 10
   }

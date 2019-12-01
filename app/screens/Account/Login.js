@@ -18,9 +18,9 @@ function CreateAccount({ navigation }) {
 
 export default function Login({ navigation }) {
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "#f6f6f6" }}>
       <Image
-        source={require("../../../assets/images/logo.png")}
+        source={require("../../../assets/images/logo2.png")}
         style={styles.logo}
         resizeMode="contain"
       />

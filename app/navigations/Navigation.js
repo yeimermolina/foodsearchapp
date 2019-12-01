@@ -16,7 +16,7 @@ const NavigationStacks = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => (
           <Icon
             type="material-community"
-            name="compass-outline"
+            name="food"
             size={22}
             color={tintColor}
           />
@@ -40,7 +40,7 @@ const NavigationStacks = createBottomTabNavigator(
     SearchRestaurants: {
       screen: SearchScreenStacks,
       navigationOptions: () => ({
-        tabBarLabel: "Search Resturants",
+        tabBarLabel: "Search",
         tabBarIcon: ({ tintColor }) => (
           <Icon
             type="material-community"
@@ -58,7 +58,7 @@ const NavigationStacks = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => (
           <Icon
             type="material-community"
-            name="home-outline"
+            name="account"
             size={22}
             color={tintColor}
           />
@@ -71,7 +71,7 @@ const NavigationStacks = createBottomTabNavigator(
     order: ["Restaurants", "TopRestaurants", "SearchRestaurants", "Account"],
     tabBarOptions: {
       inactiveTintColor: "#646464",
-      activeTintColor: "#00a680"
+      activeTintColor: "#f67280"
     }
   }
 );

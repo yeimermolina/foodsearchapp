@@ -5,12 +5,7 @@ import { withNavigation } from "react-navigation";
 
 function UserGuest({ navigation }) {
   return (
-    <ScrollView style={styles.container} centerContent>
-      <Image
-        source={require("../../../assets/images/user-guest.jpg")}
-        style={styles.image}
-        resizeMode="contain"
-      />
+    <View style={styles.container}>
       <Text style={styles.title}>Check your profile</Text>
       <Text style={styles.description}>
         How would you describe your best restaurant
@@ -23,7 +18,7 @@ function UserGuest({ navigation }) {
           onPress={() => navigation.navigate("Login")}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -31,8 +26,11 @@ export default withNavigation(UserGuest);
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 30,
-    marginRight: 30
+    alignItems: "center",
+    justifyContent: "center",
+    alignContent: "center",
+    backgroundColor: "#f6f6f6",
+    flex: 1
   },
   image: {
     height: 300,
@@ -43,18 +41,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
-    marginBottom: 10
+    marginBottom: 10,
+    color: "#f67280"
   },
   description: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center"
   },
   btnContainerView: {
-    flex: 1,
     alignItems: "center"
   },
   btn: {
-    backgroundColor: "#00a680"
+    marginTop: 10,
+    backgroundColor: "#f67280"
   },
   btnContainer: {
     width: "70%"
