@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-elements";
 import Toast from "react-native-easy-toast";
 import * as firebase from "firebase";
 import Profile from "../../components/Account/Profile";
 import Loading from "../../components/Loading";
+import AccountOptions from "../../components/Account/AccountOptions";
 
 export default function UserLogged() {
   const [profile, setProfile] = useState({});
@@ -26,7 +27,7 @@ export default function UserLogged() {
   }, [reloadData]);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Profile
         profile={profile}
         setReloadData={setReloadData}
@@ -34,9 +35,36 @@ export default function UserLogged() {
         setLoading={setLoading}
         setLoadingText={setLoadingText}
       />
-      <Button title="Log out" onPress={() => firebase.auth().signOut()} />
+      <AccountOptions />
+      <Button
+        title="Log out"
+        buttonStyle={styles.close}
+        titleStyle={styles.closeTitle}
+        onPress={() => firebase.auth().signOut()}
+      />
       <Toast ref={toastRef} position="center" opacity={0.5} />
       <Loading text={loadingText} isVisible={loading} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    minHeight: "100%",
+    backgroundColor: "#f2f2f2"
+  },
+  close: {
+    marginTop: 30,
+    borderRadius: 0,
+    backgroundColor: "#fff",
+    borderTopWidth: 1,
+    borderTopColor: "#E3E3E3",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E3E3E3",
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  closeTitle: {
+    color: "#f67280"
+  }
+});
